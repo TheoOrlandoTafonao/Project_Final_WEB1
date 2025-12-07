@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Biodata – Tailwind Replica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            simpleBlack: "#050505",
+            simpleMint: "#68f2b7",
+            simplePurple: "#b88aff",
+            simpleYellow: "#ffe56c",
+            simpleBg: "#f6f6f4",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<!-- BACKGROUND PUTIH -->
+<body class="bg-white text-black">
+
+<!-- NAVBAR COPY FROM INDEX -->
+<header class="w-full bg-[#0b0b0b] text-white sticky top-0 z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative">
+    
+    <nav class="flex items-center justify-between h-[100px] md:h-[150px] relative">
+
+      <a href="index.html" class="flex items-center gap-3 z-20">
+        <img src="images/logo.svg" class="h-10 md:h-14" />
+      </a>
+
+      <div class="hidden md:flex items-center relative h-full">
+
+        <div class="absolute top-[18px] left-[120px] h-[75px] w-[300px]
+          bg-[url('images/grain.png')] opacity-55 pointer-events-none rounded-sm"></div>
+
+        <ul class="relative flex items-center gap-10 text-[16px] font-semibold">
+          <li><a href="index.html" class="opacity-80">Home</a></li>
+          <li><a href="contact_us.html">Contact</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="freepage.html">Freepage</a></li>
+        </ul>
+
+      </div>
+
+      <!-- FIXED ALIGNMENT: SIGN IN + GET STARTED -->
+      <div class="hidden md:flex items-center h-full gap-6 text-[16px] font-semibold z-20">
+
+        <a href="#" class="hover:opacity-80 transition flex items-center">
+          Sign In
+        </a>
+
+        <a href="#"
+           class="bg-simpleMint text-black font-semibold py-2.5 px-6 rounded-sm
+                  hover:brightness-95 transition flex items-center">
+          Get Started
+        </a>
+
+      </div>
+
+      <button class="md:hidden z-20 p-2 border border-white/20 rounded"
+              onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
+        <div class="space-y-1.5">
+          <span class="block w-6 h-[2px] bg-white"></span>
+          <span class="block w-6 h-[2px] bg-white"></span>
+          <span class="block w-6 h-[2px] bg-white"></span>
+        </div>
+      </button>
+
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div id="mobileNav"
+         class="md:hidden hidden pb-4 pt-2 border-t border-white/10 text-white">
+      <ul class="flex flex-col gap-4 text-[16px] font-semibold">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact_us.html">Contact</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li><a href="freepage.html">Freepage</a></li>
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- CONTENT -->
+<section class="max-w-4xl mx-auto px-4 py-20">
+
+  <h1 class="text-4xl font-extrabold mb-10 text-center">Biodata Mahasiswa</h1>
+
+  <div class="bg-gray-100 p-8 rounded-xl border border-gray-300">
+
+    <div class="flex flex-col md:flex-row items-center gap-8">
+
+      <img src="images/theo.png"
+           class="w-40 h-40 rounded-lg object-cover shadow-lg border-2 border-simpleMint" />
+
+      <div class="space-y-3 text-lg text-black">
+        <p><span class="font-bold text-simpleMint">Nama:</span> Theo Orlando Tafonao</p>
+        <p><span class="font-bold text-simpleMint">NIM:</span> 2481009</p>
+        <p><span class="font-bold text-simpleMint">Fakultas:</span> FTI - Teknologi Informasi</p>
+        <p><span class="font-bold text-simpleMint">Hobi:</span> Coding, Musik, Editing</p>
+        <p><span class="font-bold text-simpleMint">Keterampilan:</span> HTML, CSS, JavaScript, UI/UX</p>
+      </div>
+
+    </div>
+
+    <div class="mt-10">
+      <h2 class="text-2xl font-bold mb-3 text-black">Testimonial / Reflection</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Selama mengikuti kelas penrograman web 1, saya belajar banyak tentang bagaimana membangun
+        website modern menggunakan HTML, CSS, JavaScript, dan kini Tailwind CSS. Tantangan terbesar
+        saya adalah membuat desain yang responsif dan konsisten, tetapi setelah memahami utility class
+        di Tailwind, semuanya terasa lebih mudah dan cepat.
+        <br><br>
+        Kelas ini membantu membuka wawasan saya bahwa web development bukan hanya tentang membuat
+        website, tetapi juga tentang pengalaman pengguna, estetika, dan struktur kode yang bersih.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>

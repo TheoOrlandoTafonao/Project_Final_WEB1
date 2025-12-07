@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simplecast – Tailwind Replica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [
+                "system-ui",
+                "-apple-system",
+                "BlinkMacSystemFont",
+                "Segoe UI",
+                "sans-serif",
+              ],
+            },
+            colors: {
+              simpleBlack: "#050505",
+              simpleMint: "#68f2b7",
+              simplePurple: "#b88aff",
+              simpleYellow: "#ffe56c",
+              simpleBg: "#f6f6f4",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- ========================================= -->
+    <!--            RESPONSIVE ADD-ON ONLY         -->
+    <!-- ========================================= -->
+    <style>
+      /* HERO title responsive */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.6rem !important;
+          line-height: 1.15 !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 2rem !important;
+        }
+      }
+
+      /* Logo rows spacing */
+      @media (max-width: 768px) {
+        .brand-row img {
+          height: 34px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .brand-row img {
+          height: 26px !important;
+        }
+      }
+
+      /* Feature grid becomes 1-column */
+      @media (max-width: 900px) {
+        .feature-grid {
+          grid-template-columns: 1fr !important;
+          text-align: center !important;
+        }
+        .feature-grid img {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+
+      /* Footer columns stack on mobile */
+      @media (max-width: 768px) {
+        footer .grid {
+          grid-template-columns: 1fr !important;
+          text-align: center !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-simpleBlack text-white">
+
+    <!-- TOP BAR + NAV -->
+<header class="w-full bg-[#0b0b0b] text-white sticky top-0 z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative">
+
+    <!-- NAVBAR -->
+    <nav class="flex items-center justify-between h-[100px] md:h-[150px] relative">
+
+      <!-- LEFT LOGO -->
+      <a href="#" class="flex items-center gap-3 z-20">
+        <img
+          src="images/logo.svg"
+          alt="Simplecast Logo"
+          class="h-10 md:h-14 w-auto object-contain"
+        />
+      </a>
+
+      <!-- CENTER MENU (DESKTOP & TABLET) -->
+      <div class="hidden md:flex items-center relative h-full">
+
+        <!-- GRAIN BOX BEHIND Pricing → Blog -->
+        <div class="
+          absolute 
+          top-[18px] 
+          left-[120px] 
+          h-[75px] md:h-[90px]
+          w-[300px] md:w-[440px]
+          bg-[url('images/grain.png')] 
+          opacity-55 
+          pointer-events-none rounded-sm">
+        </div>
+
+        <ul class="relative flex items-center gap-6 lg:gap-10 text-[15px] lg:text-[16px] font-semibold">
+          <li><a href="biodata.html" class="hover:opacity-80 transition"> Biodata</a></li>
+          <li><a href="contact_us.html" class="hover:opacity-80 transition">contact</a></li>
+          <li><a href="posts.html" class="hover:opacity-80 transition"> posts.html</a></li>
+          <li><a href="freepage.html" class="hover:opacity-80 transition">freepage</a></li>
+        </ul>
+
+      </div>
+
+      <!-- RIGHT BUTTON (DESKTOP) -->
+      <div class="hidden md:flex items-center gap-6 text-[16px] font-semibold z-20">
+        <a href="#" class="hover:opacity-80 transition">Sign In</a>
+
+        <a href="#"
+           class="bg-simpleMint text-black font-semibold py-2.5 px-6 rounded-sm hover:brightness-95 transition">
+          Get Started
+        </a>
+      </div>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        class="md:hidden z-20 inline-flex items-center justify-center p-2 border border-white/20 rounded"
+        onclick="document.getElementById('mobileNav').classList.toggle('hidden')"
+      >
+        <div class="space-y-1.5">
+          <span class="block w-6 h-[2px] bg-white"></span>
+          <span class="block w-6 h-[2px] bg-white"></span>
+          <span class="block w-6 h-[2px] bg-white"></span>
+        </div>
+      </button>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div id="mobileNav" class="md:hidden hidden pb-4 pt-2 border-t border-white/10">
+      <ul class="flex flex-col gap-4 text-[16px] font-semibold">
+        <li><a href="#" class="hover:opacity-80">Features</a></li>
+        <li><a href="#" class="hover:opacity-80">Pricing</a></li>
+        <li><a href="#" class="hover:opacity-80">Monetization</a></li>
+        <li><a href="#" class="hover:opacity-80">Blog</a></li>
+        <li><a href="#" class="hover:opacity-80">Support</a></li>
+        <li><a href="#" class="hover:opacity-80">Sign In</a></li>
+        <li>
+          <a href="#"
+             class="inline-block text-center bg-simpleMint text-black py-3 rounded-sm hover:brightness-95 transition">
+            Get Started
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+
+    <!-- MAIN CONTENT WRAPPER (black background) -->
+    <main class="bg-simpleBlack">
+  <section class="bg-simpleBlack">
+
+  <!-- HERO -->
+  <div class="max-w-7xl mx-auto px-4 lg:px-0 pt-16 pb-6">
+    <div class="grid lg:grid-cols-[1.7fr,0.8fr] gap-2 items-start">
+
+      <!-- LEFT heading -->
+      <div class="pr-4">
+        <h1
+          class="hero-title
+                 text-[3.2rem] sm:text-[4.2rem] md:text-[5rem] lg:text-[5.6rem]
+                 font-extrabold leading-[1.05] tracking-tight max-w-[1100px]"
+        >
+          The first and last<br />
+          word in podcast<br />
+          management and<br />
+          monetization.
+        </h1>
+
+        <div class="mt-8">
+          <a
+            href="#"
+            class="inline-block bg-simpleMint text-simpleBlack font-semibold text-lg py-4 px-12 rounded-sm hover:brightness-95 transition"
+          >
+            Create your FREE account
+          </a>
+
+          <p class="mt-4 text-sm text-white/80">
+            Looking to get paid for your podcast?
+            <a href="#" class="underline">Learn more</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT HERO IMAGE -->
+      <div class="flex justify-end">
+        <img
+          src="images/1.jpg"
+          alt="Hero"
+          class="w-[300px] md:w-[340px] lg:w-[360px] object-cover shadow-xl border-4 border-simpleBlack ml-auto"
+        />
+      </div>
+
+    </div>
+  </div>
+
+
+<div class="max-w-7xl mx-auto px-4 lg:px-0 pt-2 pb-20">
+  <div class="grid lg:grid-cols-[1.8fr,0.5fr] gap-6 items-center">
+
+    <!-- LEFT TEXT -->
+<div class="text-[1.95rem] leading-[1.32] max-w-[1050px]">
+  <p>
+    Say hello to the modern end-to-end podcasting platform.
+    Simplecast remains the easiest way to get audio out to the
+    world—with one-click publishing to 
+    <span class="inline-flex items-center gap-1 text-purple-400 font-semibold underline decoration-purple-500">
+      Apple Podcasts
+      <img src="images/apple_podcasts.svg" class="w-7 inline-block" />
+    </span>
+    Apple Podcasts
+    , 
+    <span class="inline-flex items-center gap-1 text-green-400 font-semibold">
+      Spotify
+      <img src="images/spotify.svg" class="w-7 inline-block" />
+    </span>
+    Spotify, or wherever your audience listens—and the best
+    way for podcasters to cash in on their content.
+  </p>
+</div>
+
+<!-- RIGHT MIC IMAGE -->
+<div class="flex justify-end">
+  <img
+    src="images/2.jpg"
+    alt="Mic"
+    class="w-20 md:w-24 lg:w-28 object-cover border-4 border-simpleBlack shadow-xl mt-4"
+  />
+</div>
+
+</section>
+
+<!-- ROW 1 LOGO SECTION -->
+<section class="bg-white text-black py-20">
+  <div class="max-w-[1160px] mx-auto px-4 lg:px-0">
+
+    <h2 class="text-center text-[32px] font-semibold mb-16 tracking-wide">
+      Powering podcasts from the world’s most prominent brands
+    </h2>
+
+    <!-- ROW 1 -->
+    <div class="brand-row flex flex-wrap justify-between items-center gap-8 mb-16">
+      <img src="images/meta-logo.jpg" class="h-10 object-contain" />
+      <img src="images/twitter.svg" class="h-10 object-contain" />
+      <img src="images/showtime.svg" class="h-10 object-contain" />
+      <img src="images/nike.svg" class="h-10 object-contain" />
+      <img src="images/politico.svg" class="h-10 object-contain" />
+      <img src="images/fast-company.svg" class="h-10 object-contain" />
+      <img src="images/bazaar.svg" class="h-10 object-contain" />
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="flex items-center justify-between mb-16">
+      <div class="text-4xl font-light cursor-pointer select-none -ml-4">&lt;</div>
+
+      <div class="flex flex-1 justify-between items-center mx-10">
+        <img src="images/harvard-university.svg" class="h-12 object-contain" />
+        <img src="images/mcafee.svg" class="h-12 object-contain" />
+        <img src="images/tc.svg" class="h-12 object-contain" />
+        <img src="images/shopify.svg" class="h-12 object-contain" />
+      </div>
+
+      <div class="text-4xl font-light cursor-pointer select-none -mr-4">&gt;</div>
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="flex flex-nowrap justify-between items-center gap-10 px-10 lg:px-24 overflow-x-auto">
+      <img src="images/medium.svg" class="h-10 object-contain" />
+      <img src="images/us.svg" class="h-10 object-contain" />
+      <img src="images/target.svg" class="h-10 object-contain" />
+      <img src="images/kickstarter.svg" class="h-10 object-contain" />
+      <img src="images/marriott.svg" class="h-10 object-contain" />
+    </div>
+
+  </div>
+</section>
+
+      <!-- ONE CLICK -->
+      <section class="py-16 lg:py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0">
+          <div class="grid lg:grid-cols-[1.1fr,1.1fr] gap-10 items-center feature-grid">
+            <div class="flex justify-center lg:justify-start">
+              <img src="images/one-click.png" class="w-full max-w-md object-cover shadow-xl" />
+            </div>
+
+            <div>
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-5 leading-snug">
+                One Click, Millions of Listeners
+              </h2>
+              <p class="text-base md:text-lg leading-relaxed mb-6">
+                Publishing and distributing an episode is easier than ever before...
+              </p>
+              <a href="#" class="inline-block bg-simplePurple text-black font-semibold py-3 px-8 rounded-sm hover:brightness-110 transition">
+                See what plan is right for you
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ONE PLATFORM -->
+      <section class="py-16 lg:py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0">
+          <div class="grid lg:grid-cols-[1.1fr,1.1fr] gap-10 items-center feature-grid">
+            <div>
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-5 leading-snug">
+                One Platform, Millions of Ad Opportunities
+              </h2>
+              <p class="text-base md:text-lg leading-relaxed mb-6">
+                Monetizing with Simplecast comes with two advantages...
+              </p>
+              <a href="#" class="inline-block bg-yellow-300 text-black font-semibold py-3 px-8 rounded-sm hover:brightness-95 transition">
+                Come make money with us
+              </a>
+            </div>
+
+            <div class="flex justify-center lg:justify-end">
+              <img src="images/ad-opportunities.png" class="w-full max-w-md object-cover shadow-xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYTICS -->
+      <section class="py-16 lg:py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0">
+          <div class="grid lg:grid-cols-[1.1fr,1.1fr] gap-10 items-start feature-grid">
+            <div class="flex justify-center lg:justify-start">
+              <img src="images/analytics-main.png" class="w-full max-w-xl object-cover shadow-xl" />
+            </div>
+
+            <div>
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-5 leading-snug">
+                First Of Its Kind Analytics Platform
+              </h2>
+              <p class="text-base md:text-lg leading-relaxed mb-6">
+                Meet Audience by Simplecast—an audio analytics platform unlike any you've seen...
+              </p>
+              <a href="#" class="inline-block bg-simplePurple text-black font-semibold py-3 px-8 rounded-sm hover:brightness-110 transition">
+                Check out our other features
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-14 grid lg:grid-cols-[0.9fr,1.4fr] gap-8 items-center">
+            <div class="flex justify-center lg:justify-start">
+              <img src="images/analytics-donut.png" class="w-full max-w-xs object-cover shadow-lg" />
+            </div>
+            <div class="flex justify-center lg:justify-end">
+              <img src="images/analytics-heatmap.png" class="w-full max-w-xl object-cover shadow-lg" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MOVING TO SIMPLECAST -->
+      <section class="py-16 lg:py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 lg:px-0">
+          <div class="grid lg:grid-cols-[1.1fr,1.1fr] gap-10 items-center feature-grid">
+            <div>
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-5 leading-snug">
+                Moving to Simplecast: 98% Seamless, 2% Magic
+              </h2>
+              <p class="text-base md:text-lg leading-relaxed mb-6">
+                In the past, moving your podcast to a new home was a big deal...
+              </p>
+              <a href="#" class="inline-block bg-simpleMint text-simpleBlack font-semibold py-3 px-8 rounded-sm hover:brightness-95 transition">
+                Create your FREE account
+              </a>
+            </div>
+
+            <div class="flex justify-center lg:justify-end">
+              <img src="images/30.jpg" class="w-full max-w-md object-cover shadow-xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-simpleBg text-black pt-0 pb-12">
+      <div class="w-full h-16 bg-simpleBlack"></div>
+
+      <div class="max-w-6xl mx-auto px-4 lg:px-0 pt-10">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-sm md:text-base">
+            <div>
+              <h3 class="font-semibold mb-3 tracking-wide">PRODUCT</h3>
+              <ul class="space-y-1.5">
+                <li><a href="#" class="hover:underline">Features & Pricing</a></li>
+                <li><a href="#" class="hover:underline">Blog</a></li>
+                <li><a href="#" class="hover:underline">Support</a></li>
+                <li><a href="#" class="hover:underline">Sign In</a></li>
+                <li><a href="#" class="hover:underline">Get Started</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-3 tracking-wide">COMPANY</h3>
+              <ul class="space-y-1.5">
+                <li><a href="#" class="hover:underline">Careers</a></li>
+                <li><a href="#" class="hover:underline">Terms</a></li>
+                <li><a href="#" class="hover:underline">Privacy</a></li>
+                <li><a href="#" class="hover:underline">DMCA</a></li>
+                <li><a href="#" class="hover:underline">DPA</a></li>
+                <li><a href="#" class="hover:underline">Cookies Settings</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-3 tracking-wide">SOCIAL</h3>
+              <ul class="space-y-1.5">
+                <li><a href="#" class="hover:underline">Facebook</a></li>
+                <li><a href="#" class="hover:underline">Twitter</a></li>
+                <li><a href="#" class="hover:underline">Instagram</a></li>
+                <li><a href="#" class="hover:underline">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex md:items-start md:justify-end">
+            <img src="images/simplecast-logo-small-black.svg" class="h-16 w-16 object-contain" />
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

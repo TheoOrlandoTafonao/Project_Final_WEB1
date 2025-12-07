@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Posts – External Data Fetch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            simpleBlack: "#050505",
+            simpleMint: "#68f2b7",
+            simplePurple: "#b88aff",
+            simpleYellow: "#ffe56c",
+            simpleBg: "#f6f6f4",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<!-- BODY PUTIH -->
+<body class="bg-white text-black">
+
+<!-- NAVBAR -->
+<header class="w-full bg-[#0b0b0b] text-white sticky top-0 z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative">
+
+    <nav class="flex items-center justify-between h-[100px] md:h-[150px] relative">
+
+      <!-- LOGO -->
+      <a href="index.html" class="flex items-center gap-3 z-20">
+        <img src="images/logo.svg" class="h-10 md:h-14" />
+      </a>
+
+      <!-- MENU -->
+      <div class="hidden md:flex items-center relative h-full">
+
+        <div class="absolute top-[18px] left-[120px] h-[75px] w-[300px] 
+          bg-[url('images/grain.png')] opacity-55 pointer-events-none rounded-sm"></div>
+
+        <ul class="relative flex items-center gap-10 text-[16px] font-semibold">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="biodata.html">Biodata</a></li>
+          <li><a href="contact_us.html" class="opacity-80">contact</a></li>
+          <li><a href="freepage.html">Freepage</a></li>
+        </ul>
+      </div>
+
+      <!-- SIGN IN + GET STARTED (SEJAJAR) -->
+      <div class="hidden md:flex items-center gap-6 text-[16px] font-semibold z-20">
+        <a href="#" class="hover:opacity-80 transition">Sign In</a>
+
+        <a href="#"
+           class="bg-simpleMint text-black font-semibold py-2.5 px-6 rounded-sm
+                  hover:brightness-95 transition">
+          Get Started
+        </a>
+      </div>
+
+      <!-- MOBILE BUTTON -->
+      <button class="md:hidden z-20 p-2 border border-white/20 rounded"
+              onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
+        <div class="space-y-1.5">
+          <span class="block w-6 h-[2px] bg-white"></span>
+          <span class="block w-6 h-[2px] bg-white"></span>
+          <span class="block w-6 h-[2px] bg-white"></span>
+        </div>
+      </button>
+
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div id="mobileNav" class="md:hidden hidden pb-4 pt-2 border-t border-white/10">
+      <ul class="flex flex-col gap-4 text-[16px] font-semibold text-white">
+        <li><a href="biodata.html">Biodata</a></li>
+        <li><a href="contact_us.html">Contact</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li><a href="freepage.html">Freepage</a></li>
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+<!-- PAGE CONTENT (WHITE BG) -->
+<section class="max-w-4xl mx-auto px-4 py-16 text-black">
+  
+  <h1 class="text-4xl font-extrabold mb-8">Post Data (NIM: 09)</h1>
+
+  <div id="postContainer" class="space-y-6"></div>
+
+</section>
+
+<script>
+  fetch("https://jsonplaceholder.typicode.com/posts/9")
+    .then(response => response.json())
+    .then(data => {
+      const box = document.getElementById("postContainer");
+
+      const card = `
+        <div class="bg-gray-100 border border-gray-300 p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+          <p class="text-simpleMint font-bold text-lg mb-1">ID Post: ${data.id}</p>
+          <h2 class="text-2xl font-bold mb-3 text-black">${data.title}</h2>
+          <p class="text-gray-700 leading-relaxed">${data.body}</p>
+        </div>  
+      `;
+      box.innerHTML = card;
+    })
+    .catch(err => {
+      document.getElementById("postContainer").innerHTML =
+        `<p class="text-red-500">Gagal mengambil data.</p>`;
+    });
+</script>
+
+</body>
+</html>
